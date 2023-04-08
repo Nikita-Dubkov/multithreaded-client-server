@@ -115,7 +115,6 @@ class Server {
                             LOGGER.log(Level.INFO, "Unknown command, try again..");
                         }
                     }
-                    ///////////////////// Client commands:
                     line = in.readLine();
                     line.toLowerCase();
                     if (line.equals("exit")) {
