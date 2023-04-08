@@ -6,7 +6,6 @@ public class Topic implements Serializable {
     private final String name;
     private List<Vote> voteList = new CopyOnWriteArrayList<>();
 
-    
     public Topic(String topicName) {
         this.name = topicName;
     }

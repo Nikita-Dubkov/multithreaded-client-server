@@ -102,16 +102,19 @@ class Server {
                             server.close();
                             break;
                         }
-                        if (s.contains("load")) {
+                        else if(s.contains("load")) {
                             String filename = s.split(" ")[1];
                             topics = loadFromFile(filename);
                             LOGGER.log(Level.INFO, "Load from file: " + filename);
                         }
-                        if (s.contains("save")) {
+                        else if(s.contains("save")) {
                             String filename = s.split(" ")[1];
                             if (saveInFile(filename, topics)) {
                                 LOGGER.log(Level.INFO, "Save in file: " + filename);
                             }
+                        }
+                        else{
+                            LOGGER.log(Level.INFO, "Unknown command, try again..");
                         }
                     }
                     ///////////////////// Client commands:
@@ -277,10 +280,10 @@ class Server {
             oos.writeObject(topics);
             return true;
         } catch (FileNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Eception: ", e);
+            LOGGER.log(Level.SEVERE, "Exception: ", e);
             throw new RuntimeException(e);
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Eception: ", e);
+            LOGGER.log(Level.SEVERE, "Exception: ", e);
             throw new RuntimeException(e);
         }
     }
@@ -289,13 +292,13 @@ class Server {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
             return (List<Topic>) ois.readObject();
         } catch (FileNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Eception: ", e);
+            LOGGER.log(Level.SEVERE, "Exception: ", e);
             throw new RuntimeException(e);
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Eception: ", e);
+            LOGGER.log(Level.SEVERE, "Exception: ", e);
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
-            LOGGER.log(Level.SEVERE, "Eception: ", e);
+            LOGGER.log(Level.SEVERE, "Exception: ", e);
             throw new RuntimeException(e);
         }
     }
