@@ -10,7 +10,6 @@ public class Vote implements Serializable {
     private int answerCount;
     private Map<String, Integer> answers = new ConcurrentHashMap<>();
 
-
     public Vote(String voteName, String voteDescription, int answerCount, Map<String, Integer> answers, String owner) {
         this.name = voteName;
         this.description = voteDescription;

@@ -11,11 +11,8 @@ class Client {
         try (Socket socket = new Socket(host, port)) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             System.out.println(
-                    "Connected to server host: " + host +
-                            " port: " + port + "\nPrint something to start work");
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader(socket.getInputStream()));
-
+                    "Connected to server host: " + host + " port: " + port + "\nPrint something to start work");
+            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             Scanner sc = new Scanner(System.in);
             String line = null;
             while (!socket.isOutputShutdown()) {

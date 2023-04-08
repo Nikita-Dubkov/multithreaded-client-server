@@ -19,6 +19,7 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 class Server {
+
     private final int port;
     public static int clientNumber = 0;
     private static ServerSocket server = null;
@@ -43,8 +44,8 @@ class Server {
             + "delete -t=<topic> -v=<vote> :" + "exit;";
 
     public Server(int port) {
-        this.port = port;
 
+        this.port = port;
         try {
             server = new ServerSocket(this.port);
             LOGGER.log(Level.INFO, "Server started at port: " + server.getLocalPort());
@@ -101,19 +102,16 @@ class Server {
                             work = false;
                             server.close();
                             break;
-                        }
-                        else if(s.contains("load")) {
+                        } else if (s.contains("load")) {
                             String filename = s.split(" ")[1];
                             topics = loadFromFile(filename);
                             LOGGER.log(Level.INFO, "Load from file: " + filename);
-                        }
-                        else if(s.contains("save")) {
+                        } else if (s.contains("save")) {
                             String filename = s.split(" ")[1];
                             if (saveInFile(filename, topics)) {
                                 LOGGER.log(Level.INFO, "Save in file: " + filename);
                             }
-                        }
-                        else{
+                        } else {
                             LOGGER.log(Level.INFO, "Unknown command, try again..");
                         }
                     }
