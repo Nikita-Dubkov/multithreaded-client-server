@@ -21,12 +21,12 @@ import java.util.logging.Logger;
 class Server {
 
     private final int port;
-    public static int clientNumber = 0;
+    private static int clientNumber = 0;
     private static ServerSocket server = null;
-    public static List<Topic> topics = new CopyOnWriteArrayList<>();
+    private static List<Topic> topics = new CopyOnWriteArrayList<>();
     static BufferedReader selfReader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static boolean work = true;
+    private static boolean work = true;
     private static final Logger LOGGER;
     static {
         try {

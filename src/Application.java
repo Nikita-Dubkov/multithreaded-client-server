@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class Application {
 
-    public static final byte SERVERMODE = 1;
-    public static final byte CLIENTMODE = 2;
-    public static final String adress = "127.0.0.1";
-    public static final int port = 8080;
+    private static final byte SERVERMODE = 1;
+    private static final byte CLIENTMODE = 2;
+    private static final String adress = "127.0.0.1";
+    private static final int port = 8080;
 
     public static void main(String[] args) {
 
